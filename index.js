@@ -1,21 +1,25 @@
-
+document.addEventListener("DOMContentLoaded", () => {
 const buttonSortName = document.getElementById("minToMax");
-const buttonSortPopulation = document.getElementById("maxToMin"); 
-const buttonSortAplha = document.getElementById("alpha"); 
-const inputSearch = document.getElementById("search");
-const inputRange = document.getElementById("range");
+const buttonSortPopulation = document.getElementById("maxToMin");
+const buttonSortAlpha = document.getElementById("alpha");
 
 let countries = [];
 
-async function fetchCountries(search) {
-
-   await fetch("https://restcountries.com/v3.1/all")
+async function fetchCountries() {
+  await fetch("https://restcountries.com/v3.1/all")
     .then((response) => response.json())
-        .then((data) => (countries = data.countries))
-            console.log(countries);
-        
-    
+    .then((data) => {
+      countries = data.countries;
+      console.log(countries);
+    });
 }
+
+if (buttonSortName) {
+    buttonSortName.addEventListener("click", () => {
+      fetchCountries();
+    });
+  }
+});
 
 
 // 2 - Créer une fonction pour "fetcher" les données, afficher les données dans la console.
