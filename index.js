@@ -1,10 +1,15 @@
 
-let contriesData = [];
+let countriesData = [];
 
-  fetch("https://restcountries.com/v3.1/all")
+async function fetchCountries(){
+ await fetch("https://restcountries.com/v3.1/all")
   .then((res)=>res.json())
-  .then((data)=>console.log(data));
- 
+  .then((data)=>(countrieData = data));
+  console.log(countriesData);
+}
+window.addEventListener("load", fetchCountries);
+
+
 
 
 // 2 - Créer une fonction pour "fetcher" les données, afficher les données dans la console.
