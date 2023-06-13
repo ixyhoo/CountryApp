@@ -10,6 +10,7 @@ async function fetchCountries(){
   .then((res)=>res.json())
   .then((data)=>(countriesData = data));
   console.log(countriesData);
+  countriesDisplay();
 }
 window.addEventListener("load", fetchCountries);
 
@@ -18,10 +19,10 @@ function countriesDisplay(){
   countriesContainer.innerHTML = countriesData.map((country)=> 
   `
   <div class="card">
-  
+  <h2>${country.translations.fra.common}</h2>
   </div>
   `
-  )
+  );
 }
 
 
