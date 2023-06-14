@@ -17,6 +17,7 @@ async function fetchCountries(){
 function countriesDisplay(){
   countriesContainer.innerHTML = countriesData
   .filter((country)=> country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
+  .slice(0, inputRange.value) 
   .map((country)=> 
   `
   <div class="card">
@@ -33,6 +34,9 @@ function countriesDisplay(){
 //country.name.includes(inputSearch.value);
 window.addEventListener("load", fetchCountries);
 inputSearch.addEventListener("input", countriesDisplay);
+inputRange.addEventListener("input", ()=>{
+  countriesDisplay();
+});
 
 // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
 
