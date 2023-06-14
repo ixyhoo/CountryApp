@@ -19,10 +19,13 @@ function countriesDisplay(){
   countriesContainer.innerHTML = countriesData.map((country)=> 
   `
   <div class="card">
+  <img src="${country.flags.svg}" alt="${country.translations.fra.common}">
   <h2>${country.translations.fra.common}</h2>
+  <h4>${country.capital}</h4>
+  <p>population : ${country.population.toLocaleString()}</p>
   </div>
   `
-  );
+  ).join("");
 }
 
 
