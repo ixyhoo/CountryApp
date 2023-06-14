@@ -16,7 +16,9 @@ window.addEventListener("load", fetchCountries);
 
 // 4 - Créer une fonction d'affichage, et paramétrer l'affichage des cartes de chaque pays grace à la méthode MAP
 function countriesDisplay(){
-  countriesContainer.innerHTML = countriesData.map((country)=> 
+  countriesContainer.innerHTML = countriesData
+  .filter((country)=> country.translation.fra.common.includes(inputSearch.value)
+  .map((country)=> 
   `
   <div class="card">
   <img src="${country.flags.svg}" alt="${country.translations.fra.common}">
