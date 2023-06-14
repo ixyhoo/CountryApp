@@ -12,12 +12,11 @@ async function fetchCountries(){
   console.log(countriesData);
   countriesDisplay();
 }
-window.addEventListener("load", fetchCountries);
 
 // 4 - Créer une fonction d'affichage, et paramétrer l'affichage des cartes de chaque pays grace à la méthode MAP
 function countriesDisplay(){
   countriesContainer.innerHTML = countriesData
-  .filter((country)=> country.translation.fra.common.includes(inputSearch.value)
+  .filter((country)=> country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
   .map((country)=> 
   `
   <div class="card">
@@ -32,6 +31,8 @@ function countriesDisplay(){
 
 // 5 - Récupérer ce qui est tapé dans l'input et filtrer (avant le map) les données
 //country.name.includes(inputSearch.value);
+window.addEventListener("load", fetchCountries);
+inputSearch.addEventListener("input", countriesDisplay);
 
 // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
 
