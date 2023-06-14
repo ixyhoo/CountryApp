@@ -28,9 +28,6 @@ function countriesDisplay(){
   ).join("");
 }
 
-
-
-
 // 5 - Récupérer ce qui est tapé dans l'input et filtrer (avant le map) les données
 //country.name.includes(inputSearch.value);
 
