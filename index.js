@@ -36,6 +36,7 @@ window.addEventListener("load", fetchCountries);
 inputSearch.addEventListener("input", countriesDisplay);
 inputRange.addEventListener("input", ()=>{
   countriesDisplay();
+  rangeValue.textContent = inputRange.value;
 });
 
 // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
