@@ -3,6 +3,7 @@
 // 3 - Passer les données à une variable
 const countriesContainer = document.querySelector(".countries-container");
 let countriesData = [];
+let sortMethod = "alpha";
 
 
 async function fetchCountries(){
@@ -17,6 +18,15 @@ async function fetchCountries(){
 function countriesDisplay(){
   countriesContainer.innerHTML = countriesData
   .filter((country)=> country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
+  .sort((a,b)=>{
+    if (sortMethod === "maxToMin"){
+      return b.population - a.population;
+    }else if (sortMethod === "minToMax"){
+      return a.population - b.population;
+    }else if (sortMethod === "alpha"){
+      return a.translations.fra.common.localeCompare(b.translations.fra.common);
+    }
+  })
   .slice(0, inputRange.value) 
   .map((country)=> 
   `
