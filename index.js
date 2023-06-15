@@ -4,7 +4,7 @@
 const countriesContainer = document.querySelector(".countries-container");
 const btnSort = document.querySelectorAll(".btnSort");
 let countriesData = [];
-let sortMethod = "alpha";
+let sortMethod = "maxToMin";
 
                                                                                                                                                                                                                                                                                                         
 
@@ -56,6 +56,7 @@ inputRange.addEventListener("input", ()=>{
 // 7 - Gérer les 3 boutons pour trier (méthode sort()) les pays
 btnSort.forEach((btn)=>{
   btn.addEventListener("click", (e)=>{
-   console.log(e.target.id);
+   sortMethod = e.target.id;
+   countriesDisplay();
   });
 });
