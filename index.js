@@ -2,9 +2,11 @@
 
 // 3 - Passer les données à une variable
 const countriesContainer = document.querySelector(".countries-container");
+const btnSort = document.querySelectorAll(".btnSort");
 let countriesData = [];
 let sortMethod = "alpha";
 
+                                                                                                                                                                                                                                                                                                        
 
 async function fetchCountries(){
  await fetch("https://restcountries.com/v3.1/all")
@@ -52,3 +54,8 @@ inputRange.addEventListener("input", ()=>{
 // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
 
 // 7 - Gérer les 3 boutons pour trier (méthode sort()) les pays
+btnSort.forEach((btn)=>{
+  btn.addEventListener("click", (e)=>{
+   console.log(e.target.id);
+  });
+});
